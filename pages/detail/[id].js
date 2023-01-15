@@ -1,5 +1,4 @@
 import Container from "../../components/styled/Container";
-import Grid from "../../components/styled/Grid";
 import Image from "../../components/styled/Image";
 
 /* eslint-disable @next/next/no-img-element */
