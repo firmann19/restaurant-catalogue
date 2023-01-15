@@ -1,3 +1,7 @@
+import Container from "../../components/styled/Container";
+import Grid from "../../components/styled/Grid";
+import Image from "../../components/styled/Image";
+
 /* eslint-disable @next/next/no-img-element */
 export default function Detail({ restaurant }) {
   const {
@@ -7,8 +11,10 @@ export default function Detail({ restaurant }) {
     menus: { foods, drinks },
   } = restaurant;
   return (
-    <div className="container">
-      <img
+    <Container>
+      <Image
+        width="500px"
+        height="450px"
         src={`https://restaurant-api.dicoding.dev/images/large/${pictureId}`}
         alt={name}
       />
@@ -22,22 +28,21 @@ export default function Detail({ restaurant }) {
 
       <main>
         <h2>Informasi Menu</h2>
+          <h3>Makanan</h3>
+          <ul>
+            {foods.map((food) => (
+              <li key={food.name}>{food.name}</li>
+            ))}
+          </ul>
 
-        <h3>Makanan</h3>
-        <ul>
-          {foods.map((food) => (
-            <li key={food.name}>{food.name}</li>
-          ))}
-        </ul>
-
-        <h3>Minuman</h3>
-        <ul>
-          {drinks.map((drink) => (
-            <li key={drink.name}>{drink.name}</li>
-          ))}
-        </ul>
+          <h3>Minuman</h3>
+          <ul>
+            {drinks.map((drink) => (
+              <li key={drink.name}>{drink.name}</li>
+            ))}
+          </ul>
       </main>
-    </div>
+    </Container>
   );
 }
 
